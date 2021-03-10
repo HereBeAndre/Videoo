@@ -9,10 +9,10 @@ const Searchbar = (props) => {
     props.onSubmit(searchValue);
   };
   return (
-    <form className="ui action input" onSubmit={onFormSubmit}>
+    <form className="search-bar ui action input" onSubmit={onFormSubmit}>
       <input
         type="text"
-        placeholder="Search..."
+        placeholder="Search videos..."
         value={searchValue}
         onChange={onInputChange}
       ></input>
