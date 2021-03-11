@@ -1,17 +1,22 @@
 import React from "react";
+import youtube from "../youtube";
 import Searchbar from "./Searchbar";
 
-class App extends React.Component {
-  onSearchSubmit(value) {
-    console.log(value);
-  }
-  render() {
-    return (
-      <div>
-        <Searchbar onSubmit={this.onSearchSubmit} />
-      </div>
-    );
-  }
-}
+const App = () => {
+  const onSearchSubmit = async (term) => {
+    const response = await youtube.get("/search", {
+      params: {
+        q: term,
+      },
+    });
+    console.log(response);
+  };
+
+  return (
+    <div>
+      <Searchbar onSubmit={onSearchSubmit} />
+    </div>
+  );
+};
 
 export default App;
