@@ -11,7 +11,7 @@ const App = () => {
       },
     });
     // console.log(response);
-    setVideos(response); // FIXME: Take only necessary part of response
+    setVideos(response); // FIXME: Take only what I need from response
   };
 
   console.log(videos);
