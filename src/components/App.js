@@ -19,6 +19,7 @@ const App = () => {
   return (
     <div>
       <Searchbar onSubmit={onSearchSubmit} />
+      {/* TODO: Add number of videos here */}
     </div>
   );
 };
