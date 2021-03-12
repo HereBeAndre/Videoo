@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import youtube from "../youtube";
 import Searchbar from "./Searchbar";
+import VideoList from "./VideoList";
 
 const App = () => {
   const [videos, setVideos] = useState([]);
@@ -10,16 +11,13 @@ const App = () => {
         q: term,
       },
     });
-    // console.log(response);
-    setVideos(response); // FIXME: Take only what I need from response
+    setVideos(response.data.items);
   };
 
-  console.log(videos);
-
   return (
-    <div>
+    <div className="ui container">
       <Searchbar onSubmit={onSearchSubmit} />
-      {/* TODO: Add number of videos here */}
+      <VideoList videos={videos} />
     </div>
   );
 };
