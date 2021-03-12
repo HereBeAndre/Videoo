@@ -15,7 +15,7 @@ const App = () => {
   };
 
   return (
-    <div className="container">
+    <div className="ui container">
       <Searchbar onSubmit={onSearchSubmit} />
       <VideoList videos={videos} />
     </div>
