@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import youtube from "../youtube";
-import Searchbar from "./Searchbar";
-import VideoDetail from "./VideoDetail";
-import VideoList from "./VideoList";
+import Searchbar from "./Searchbar/Searchbar";
+import VideoDetail from "./VideoDetail/VideoDetail";
+import VideoList from "./VideoList/VideoList";
 
 const App = () => {
   const [videos, setVideos] = useState([]);

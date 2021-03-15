@@ -1,5 +1,5 @@
 import React from "react";
-import VideoItem from "./VideoItem";
+import VideoItem from "../VideoItem/VideoItem.js";
 
 const VideoList = ({ videos, onVideoSelect }) => {
   // DESTRUCTURING => Same as - const {videos} = props; -
