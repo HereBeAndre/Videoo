@@ -1,7 +1,7 @@
 import React from "react";
 import "./VideoItem.css";
 
-const VideoItem = ({ video }) => {
+const VideoItem = ({ video, onVideoSelect }) => {
   // DESTRUCTURING => Same as - const {video} = props; -
   const {
     description,
@@ -12,11 +12,11 @@ const VideoItem = ({ video }) => {
     },
   } = video.snippet;
   return (
-    <div className="video-item item">
+    <div onClick={() => onVideoSelect(video)} className="video-item item">
       <img className="ui image" alt={description} src={url}></img>
-      <div class="content">
-        <div class="header">{title}</div>
-        <div class="description">{channelTitle}</div>
+      <div className="content">
+        <div className="header">{title}</div>
+        <div className="description">{channelTitle}</div>
       </div>
     </div>
   );
