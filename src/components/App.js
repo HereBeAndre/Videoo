@@ -4,6 +4,8 @@ import Searchbar from "./Searchbar/Searchbar";
 import VideoDetail from "./VideoDetail/VideoDetail";
 import VideoList from "./VideoList/VideoList";
 
+import "./App.css";
+
 const App = () => {
   const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
