@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import "./Searchbar.css";
+
 const Searchbar = (props) => {
   const [searchValue, setSearchValue] = useState("");
   const onInputChange = (e) => setSearchValue(e.target.value);
@@ -21,7 +23,9 @@ const Searchbar = (props) => {
           value={searchValue}
           onChange={onInputChange}
         ></input>
-        <button className="ui button">Search</button>
+        <button className="ui blue button">
+          <i className="search icon"></i>Search
+        </button>
       </div>
     </form>
   );
