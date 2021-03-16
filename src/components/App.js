@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import youtube from "../api/youtube";
 import Searchbar from "./Searchbar/Searchbar";
 import VideoDetail from "./VideoDetail/VideoDetail";
@@ -16,7 +16,12 @@ const App = () => {
       },
     });
     setVideos(response.data.items);
+    setSelectedVideo(response.data.items[0]); // Show default video on user search
   };
+
+  useEffect(() => {
+    onSearchSubmit("national geographic"); // Show some videos on component mount
+  }, []);
 
   const onVideoSelect = (video) => {
     console.log("From APP", video);
