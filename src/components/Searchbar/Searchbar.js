@@ -8,15 +8,21 @@ const Searchbar = (props) => {
     e.preventDefault();
     props.onSubmit(searchValue);
   };
+
   return (
-    <form className="search-bar ui action input" onSubmit={onFormSubmit}>
-      <input
-        type="text"
-        placeholder="Search videos..."
-        value={searchValue}
-        onChange={onInputChange}
-      ></input>
-      <button className="ui button">Search</button>
+    <form
+      className="search-bar ui action input fluid category search"
+      onSubmit={onFormSubmit}
+    >
+      <div className="ui icon input">
+        <input
+          type="text"
+          placeholder="Search videos..."
+          value={searchValue}
+          onChange={onInputChange}
+        ></input>
+        <button className="ui button">Search</button>
+      </div>
     </form>
   );
 };
