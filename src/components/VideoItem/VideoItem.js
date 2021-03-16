@@ -4,7 +4,6 @@ import "./VideoItem.css";
 const VideoItem = ({ video, onVideoSelect }) => {
   // DESTRUCTURING => Same as - const {video} = props; -
   const {
-    description,
     title,
     channelTitle,
     thumbnails: {
@@ -13,7 +12,7 @@ const VideoItem = ({ video, onVideoSelect }) => {
   } = video.snippet;
   return (
     <div onClick={() => onVideoSelect(video)} className="video-item item">
-      <img className="ui image" alt={description} src={url}></img>
+      <img className="ui image" alt={title} src={url}></img>
       <div className="content">
         <div className="header">{title}</div>
         <div className="description">{channelTitle}</div>

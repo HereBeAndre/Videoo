@@ -26,8 +26,16 @@ const App = () => {
   return (
     <div className="ui container">
       <Searchbar onSubmit={onSearchSubmit} />
-      <VideoDetail video={selectedVideo} />
-      <VideoList videos={videos} onVideoSelect={onVideoSelect} />
+      <div className="ui grid">
+        <div className="ui row">
+          <div className="eleven wide column">
+            <VideoDetail video={selectedVideo} />
+          </div>
+          <div className="five wide column">
+            <VideoList videos={videos} onVideoSelect={onVideoSelect} />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
