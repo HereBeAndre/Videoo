@@ -23,11 +23,6 @@ const App = () => {
     onSearchSubmit("national geographic"); // Show some videos on component mount
   }, []);
 
-  const onVideoSelect = (video) => {
-    console.log("From APP", video);
-    setSelectedVideo(video);
-  };
-
   return (
     <div className="ui container">
       <Searchbar onSubmit={onSearchSubmit} />
@@ -37,7 +32,8 @@ const App = () => {
             <VideoDetail video={selectedVideo} />
           </div>
           <div className="five wide column">
-            <VideoList videos={videos} onVideoSelect={onVideoSelect} />
+            {/* Same as callback: () => setSelectedVideo(video)} _ valid syntax when a parameter is passed directly as an argument*/}
+            <VideoList videos={videos} onVideoSelect={setSelectedVideo} />
           </div>
         </div>
       </div>
