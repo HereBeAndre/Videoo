@@ -2,7 +2,6 @@ import React from "react";
 import "./VideoItem.css";
 
 const VideoItem = ({ video, onVideoSelect }) => {
-  // DESTRUCTURING => Same as - const {video} = props; -
   const {
     title,
     channelTitle,
