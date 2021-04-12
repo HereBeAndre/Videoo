@@ -2,13 +2,12 @@ import React, { useState } from "react";
 
 import "./Searchbar.css";
 
-const Searchbar = (props) => {
+const Searchbar = ({ onSubmit }) => {
   const [searchValue, setSearchValue] = useState("");
-  const onInputChange = (e) => setSearchValue(e.target.value);
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-    props.onSubmit(searchValue);
+    onSubmit(searchValue);
   };
 
   return (
@@ -21,7 +20,7 @@ const Searchbar = (props) => {
           type="text"
           placeholder="Search videos..."
           value={searchValue}
-          onChange={onInputChange}
+          onChange={(e) => setSearchValue(e.target.value)}
         ></input>
         <button className="ui blue button">
           <i className="search icon"></i>Search
