@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import youtube from "../api/youtube";
 import Searchbar from "./Searchbar/Searchbar";
 import VideoDetail from "./VideoDetail/VideoDetail";
 import VideoList from "./VideoList/VideoList";
@@ -7,8 +6,8 @@ import VideoList from "./VideoList/VideoList";
 import "./App.css";
 
 const App = () => {
-  const [videos, setVideos] = useState([]);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  // setSelectedVideo(response.data.items[0]); // Show default video on user search
   const onSearchSubmit = async (term) => {
     const response = await youtube.get("/search", {
       params: {
@@ -16,7 +15,6 @@ const App = () => {
       },
     });
     setVideos(response.data.items);
-    setSelectedVideo(response.data.items[0]); // Show default video on user search
   };
 
   useEffect(() => {
