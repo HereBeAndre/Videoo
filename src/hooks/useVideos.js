@@ -7,7 +7,7 @@ const useVideos = (defaultSearchTerm) => {
 
   useEffect(() => {
     search(defaultSearchTerm); // defaultSearchTerm is the only input
-  }, []); // Show some videos on component mount
+  }, [defaultSearchTerm]); // Show some videos on component mount
 
   // Output 2
   const search = async (term) => {
