@@ -2,28 +2,20 @@ import React, { useEffect, useState } from "react";
 import Searchbar from "./Searchbar/Searchbar";
 import VideoDetail from "./VideoDetail/VideoDetail";
 import VideoList from "./VideoList/VideoList";
+import useVideos from "../hooks/useVideos";
 
 import "./App.css";
 
 const App = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
-  // setSelectedVideo(response.data.items[0]); // Show default video on user search
-  const onSearchSubmit = async (term) => {
-    const response = await youtube.get("/search", {
-      params: {
-        q: term,
-      },
-    });
-    setVideos(response.data.items);
-  };
+  const [videos, search] = useVideos("colnago"); // Default value is 'colnago' => videos will be related to a 'colnago' search by default
 
   useEffect(() => {
-    onSearchSubmit("national geographic"); // Show some videos on component mount
-  }, []);
-
+    setSelectedVideo(videos[0]); // Show default video on videos update
+  }, [videos]);
   return (
     <div className="ui container">
-      <Searchbar onSubmit={onSearchSubmit} />
+      <Searchbar onSubmit={search} />
       <div className="ui grid">
         <div className="ui row">
           <div className="eleven wide column">

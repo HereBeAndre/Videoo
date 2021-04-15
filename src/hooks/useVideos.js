@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import youtube from "../api/youtube";
 
+// Custom hook that manages videos fetching only
 const useVideos = (defaultSearchTerm) => {
-  const [videos, setVideos] = useState([]);
+  const [videos, setVideos] = useState([]); // Output 1
 
   useEffect(() => {
-    search(defaultSearchTerm); // Show some videos on component mount
-  }, []);
+    search(defaultSearchTerm); // defaultSearchTerm is the only input
+  }, []); // Show some videos on component mount
 
+  // Output 2
   const search = async (term) => {
     const response = await youtube.get("/search", {
       params: {
@@ -17,7 +19,8 @@ const useVideos = (defaultSearchTerm) => {
     setVideos(response.data.items);
   };
 
-  return [search, videos];
+  // A custom hook always returns some outputs
+  return [videos, search]; // Think of it like useState => "videos" is updated by "search"
 };
 
 export default useVideos;
